@@ -130,11 +130,12 @@ class YamlDriver extends AbstractFileDriver
                     );
                     unset($propertySettings['exp']);
                 } else {
-                    if (!$class->hasMethod($methodName)) {
-                        throw new InvalidMetadataException(
-                            'The method ' . $methodName . ' not found in class ' . $class->name
-                        );
-                    }
+		    //skip exception - allow magic method as getter
+                    //if (!$class->hasMethod($methodName)) {
+                    //    throw new InvalidMetadataException(
+                    //        'The method ' . $methodName . ' not found in class ' . $class->name
+                    //    );
+                    //}
 
                     $virtualPropertyMetadata = new VirtualPropertyMetadata($name, $methodName);
                 }
